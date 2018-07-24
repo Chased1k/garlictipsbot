@@ -61,7 +61,7 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
         self.cursor.execute(sql, (username,))
 
     def get_rates(self):
-        sql = "SELECT * FROM rates WHERE pair='%s'" % ("DASH/GRLC")
+        sql = "SELECT * FROM rates WHERE pair='%s'" % ("DASH/QUAN")
         self.cursor.execute(sql)
         result = self.cursor.fetchone()
         return result[2]
@@ -148,7 +148,7 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
         if addamt >= bank+Decimal(0.01):
             try:
                 self.logger.logline("%s had %s and tried to give %s. Failed due to not having enough in bank." % (sender,bank,addamt))
-                self.reddit.comment(id=mention.id).reply("Sorry! You don't have enough in your account and we aren't a garlic bank! PM me with the word 'deposit' and I will send you instructions to get more delicious garlic into your account.")
+                self.reddit.comment(id=mention.id).reply("Sorry! You don't have enough in your account and we aren't a Quantis bank! PM me with the word 'deposit' and I will send you instructions to get more precious Quantis into your account.")
                 return 2
             except:
                 self.logger.logline("Bot was unable to comment, perhaps rate limited?")
@@ -160,7 +160,7 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
                 self.modify_user_balance("+",receiver,addamt)
                 mstr = str(receiver)+" "+str(addamt) #Probably no need for this, holdover from recode.
                 try:
-                    self.reddit.comment(id=mention.id).reply("Yay! You gave /u/%s quantis, hopefully they can now create some tasty garlic bread.\n***\n^^Wow ^^so ^^tasty ^^|| ^^I ^^now ^^support ^^exchange ^^from ^^and ^^to ^^other ^^cryptos [^^click ^^here](https://www.reddit.com/r/quantis/comments/7wehii/uquantistipbot_a_giveaway_important_news/) ^^|| [^^Need ^^help?](https://www.reddit.com/message/compose/?to=quantistipbot&subject=help&message=help) ^^|| [^^Dogecoin ^^partnership ^^coming ^^soon](https://np.reddit.com/r/quantis/comments/7u0z1w/quantistipbot_recodeopen_sourceimportant_news/)" % (mstr))
+                    self.reddit.comment(id=mention.id).reply("Yay! You gave /u/%s some quantis! \n***\n^^Wow ^^so ^^tasty ^^|| ^^I ^^now ^^support ^^exchange ^^from ^^and ^^to ^^other ^^cryptos [^^click ^^here](https://www.reddit.com/r/quantis/) ^^|| [^^Need ^^help?](https://www.reddit.com/message/compose/?to=quantistipbot&subject=help&message=help) ^^||" % (mstr))
                 except:
                     self.logger.logline("Reddit doesn't seem to be responding right now...died on comment for existing user.")
                     #traceback.print_exc()
@@ -168,7 +168,7 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
                 self.create_account(receiver)
                 self.modify_user_balance("+",receiver,addamt)
                 try:
-                    self.reddit.comment(id=mention.id).reply("Yay! You gave /u/%s %s quantis, hopefully they can now create some tasty garlic bread. If %s doesn't know what it is, they should read [this thread](https://np.reddit.com/r/quantis/comments/7smsu0/introducing_uquantistipbot/)\n***\n^^Wow ^^so ^^tasty ^^|| ^^I ^^now ^^support ^^exchange ^^from ^^and ^^to ^^other ^^cryptos [^^click ^^here](https://www.reddit.com/r/quantis/comments/7wehii/uquantistipbot_a_giveaway_important_news/) ^^|| [^^Need ^^help?](https://www.reddit.com/message/compose/?to=quantistipbot&subject=help&message=help) ^^|| [^^Dogecoin ^^partnership ^^coming ^^soon](https://np.reddit.com/r/quantis/comments/7u0z1w/quantistipbot_recodeopen_sourceimportant_news/)" % (receiver, addamt, receiver))
+                    self.reddit.comment(id=mention.id).reply("Yay! You gave /u/%s %s quantis, hopefully they can now enjoy some precious Quan. If %s doesn't know what it is, they should read [this thread](https://np.reddit.com/r/quantis/comments/7smsu0/introducing_uquantistipbot/)\n***\n^^Wow ^^so ^^tasty ^^|| ^^I ^^now ^^support ^^exchange ^^from ^^and ^^to ^^other ^^cryptos [^^click ^^here](https://www.reddit.com/r/quantis/comments/7wehii/uquantistipbot_a_giveaway_important_news/) ^^|| [^^Need ^^help?](https://www.reddit.com/message/compose/?to=quantistipbot&subject=help&message=help) ^^|| [^^Dogecoin ^^partnership ^^coming ^^soon](https://np.reddit.com/r/quantis/comments/7u0z1w/quantistipbot_recodeopen_sourceimportant_news/)" % (receiver, addamt, receiver))
                     self.utils.send_message(receiver,'Welcome to quantis',"%s gave you some quantis, we have added your new found riches to an account in your name on quantistipbot. You can get the balance by messaging this bot with the word balance on it's own (in a new message, not as a reply to this one!) \n\nYou can also send tips to others or withdraw to your own quantis wallet. If there are any issues please PM /u/ktechmidas" % mention.author)
                 except:
                     self.logger.logline("Reddit doesn't seem to be responding right now...died on comment & sendmsg for new user.")
@@ -189,7 +189,7 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
                 self.modify_user_balance("+",receiver,addamt)
                 mstr = str(receiver)+" "+str(addamt) #Probably no need for this, holdover from recode.
                 try:
-                    message.reply("Yay! You gave /u/%s quantis, hopefully they can now create some tasty garlic bread." % (mstr))
+                    message.reply("Yay! You gave /u/%s quantis, hopefully they can now enjoy some precious Quan." % (mstr))
                     self.utils.send_message(receiver,'Welcome to quantis',"%s gave you some quantis via PM" % (message.author))
                 except:
                     self.logger.logline("Reddit doesn't seem to be responding right now...died on comment for existing user.")
@@ -197,7 +197,7 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
                 self.create_account(receiver)
                 self.modify_user_balance("+",receiver,addamt)
                 try:
-                    message.reply("Yay! You gave /u/%s %s quantis, hopefully they can now create some tasty garlic bread. If %s doesn't know what it is, they should read [this thread](https://www.reddit.com/r/quantis/comments/7smsu0/introducing_uquantistipbot/)" % (receiver, addamt, receiver))
+                    message.reply("Yay! You gave /u/%s %s quantis, hopefully they can now enjoy some precious Quan. If %s doesn't know what it is, they should read [this thread](https://www.reddit.com/r/quantis/comments/7smsu0/introducing_uquantistipbot/)" % (receiver, addamt, receiver))
                     self.utils.send_message(receiver,'Welcome to quantis',"%s gave you some quantis, we have added your new found riches to an account in your name on quantistipbot. You can get the balance by messaging this bot with the word balance on it's own (in a new message, not as a reply to this one!) \n\nYou can also send tips to others or withdraw to your own quantis wallet, send the bot the word 'help' to see how to do this. If there are any issues please PM /u/ktechmidas" % message.author)
                 except:
                     self.logger.logline("Reddit doesn't seem to be responding right now...died on comment & sendmsg for new user.")
@@ -290,7 +290,7 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
             message.reply(self.help)
         elif command == "rates":
             amt = self.get_rates()
-            message.reply("The current rate is \n[Dash/GRLC <>  %s]" % (round(amt,2)))
+            message.reply("The current rate is \n[Dash/QUAN <>  %s]" % (round(amt,2)))
         elif command == "free":
             chk = self.check_giveaway(author)
             if chk == 0:
@@ -356,21 +356,21 @@ If you need any further assistance please PM my creator, /u/ktechmidas"""
             if not result:
                 message.reply("The currency you want to exchange from or to is unavailable at this time. This could be due to suspension of trading or non-supported currency pairs.")
                 raise Exception
-            rate = Decimal(result[2]) #10 GRLC to Dash is 0.0045
+            rate = Decimal(result[2]) #10 QUAN to Dash is 0.0045
             amttoconvertto = amount * rate
 
-            if crypto_from == "GRLC":
+            if crypto_from == "QUAN":
                 balance = self.get_amount_for_user(author)
                 if balance+Decimal(0.1) > amount:
                     self.modify_user_balance('-',author,amount)
                     self.modify_user_balance('+',author,amttoconvertto,crypto_to)
-                    message.reply("Hi, your %s GRLC has successfully been converted to %s Dash at a rate of %s. If there are any issues with this or the amounts don't look correct, please PM /u/ktechmidas" % (amount,amttoconvertto,rate))
+                    message.reply("Hi, your %s QUAN has successfully been converted to %s Dash at a rate of %s. If there are any issues with this or the amounts don't look correct, please PM /u/ktechmidas" % (amount,amttoconvertto,rate))
             elif crypto_from == "DASH":
                 balance = self.get_dash_for_user(author)
                 if balance+Decimal(0.00001) > amount:
                     self.modify_user_balance('-',author,amount,'DASH')
                     self.modify_user_balance('+',author,amttoconvertto)
-                    message.reply("Hi, your %s Dash has successfully been converted to %s GRLC at a rate of %s. If there are any issues with this or the amounts don't look correct, please PM /u/ktechmidas" % (amount,amttoconvertto,rate))
+                    message.reply("Hi, your %s Dash has successfully been converted to %s QUAN at a rate of %s. If there are any issues with this or the amounts don't look correct, please PM /u/ktechmidas" % (amount,amttoconvertto,rate))
 
 
 

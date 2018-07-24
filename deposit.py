@@ -35,7 +35,7 @@ class deposit():
 
 
     def check_deposits(self,username,tx_in_db,coin):
-        qcheck = subprocess.check_output(shlex.split('%s/%s/bin/%s-cli listtransactions %s' % (self.utils.config['other']['full_dir'],coin,coin,username)))
+        qcheck = subprocess.check_output(shlex.split('%s/%s/bin/%sd listtransactions %s' % (self.utils.config['other']['full_dir'],coin,coin,username)))
         txamount = qcheck.count("amount") #TODO: This can be done a lot better.
         
         if txamount > tx_in_db:

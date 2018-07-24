@@ -1,9 +1,9 @@
 {
     "mysql":{
-        "host":"xxxx",
-        "user":"xxxx",
-        "passwd":"xxxx",
-        "db":"xxxx"
+        "host":"localhost",
+        "user":"root",
+        "passwd":"H110MyD2rl1ng",
+        "db":"tipbot"
     },
     "reddit":{
         "client_id":"9GTqST7RvrZCvg",
@@ -13,8 +13,8 @@
         "username":"quantistipbot"
     },
     "other":{
-        "full_dir":"/usr/local/bin",
-        "cryptos": { 
+        "full_dir":"/usr/local",
+        "cryptos": {
             "1":"quantis",
             "2":"dash"
         }

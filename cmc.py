@@ -3,8 +3,8 @@ import json
 from utils import utils
 from decimal import *
 
-grlcpriceurl = 'https://api.coinmarketcap.com/v1/ticker/garlicoin/'
-dashpriceurl = 'https://api.coinmarketcap.com/v1/ticker/dash/'
+quanpriceurl = 'https://coinlib.io/api/v1/coin?key=fc23d7cb020f2ce1&symbol=QUAN'
+dashpriceurl = 'https://coinlib.io/api/v1/coin?key=fc23d7cb020f2ce1&symbol=DASH'
 
 utils = utils()
 cursor = utils.get_mysql_cursor()
@@ -12,19 +12,19 @@ cursor = utils.get_mysql_cursor()
 sql = "TRUNCATE TABLE rates"
 cursor.execute(sql)
 
-response = urllib.urlopen(grlcpriceurl)
+response = urllib.urlopen(quanpriceurl)
 data = json.loads(response.read())
-grlcprice = round(Decimal(data[0]['price_usd']),8)
+quanprice = round(Decimal(data[0]['price']),8)
 
 response = urllib.urlopen(dashpriceurl)
 data = json.loads(response.read())
-dashprice = round(Decimal(data[0]['price_usd']),8)
+dashprice = round(Decimal(data[0]['price']),8)
 
 sql = "INSERT INTO rates (pair,rate) VALUES (%s, %s)"
-pair = "GRLC/DASH"
-rate = grlcprice/dashprice
+pair = "QUAN/DASH"
+rate = quanprice/dashprice
 cursor.execute(sql, (pair,rate,))
 
-pair = "DASH/GRLC"
-rate = dashprice/grlcprice
+pair = "DASH/QUAN"
+rate = dashprice/quanprice
 cursor.execute(sql, (pair,rate,))
