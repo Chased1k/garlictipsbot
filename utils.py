@@ -21,7 +21,7 @@ class utils():
         db.autocommit(True)
         cursor = db.cursor()
         return cursor
-    
+
     def connect_to_reddit(self):
         self.reddit = praw.Reddit(client_id=self.config['reddit']['client_id'],
                         client_secret=self.config['reddit']['client_secret'],

@@ -6,16 +6,16 @@
         "db":"xxxx"
     },
     "reddit":{
-        "client_id":"xxxx",
-        "client_secret":"xxxx",
-        "password":"xxxx",
-        "user_agent":"xxxx",
-        "username":"xxxx"
+        "client_id":"9GTqST7RvrZCvg",
+        "client_secret":"j2vJ1dGuRTbrrP0rC5-4aE9jU_k",
+        "password":"QuantisM00n",
+        "user_agent":"quantistipbot's tipping bot test v0.1",
+        "username":"quantistipbot"
     },
     "other":{
-        "full_dir":"/home/ubuntu/",
+        "full_dir":"/usr/local/bin",
         "cryptos": { 
-            "1":"garlicoin",
+            "1":"quantis",
             "2":"dash"
         }
     }
