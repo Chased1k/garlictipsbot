@@ -1,14 +1,14 @@
 {
     "mysql":{
-        "host":"localhost",
-        "user":"root",
-        "passwd":"H110MyD2rl1ng",
-        "db":"tipbot"
+        "host":"xxxx",
+        "user":"xxxx",
+        "passwd":"xxxx",
+        "db":"xxxx"
     },
     "reddit":{
-        "client_id":"9GTqST7RvrZCvg",
-        "client_secret":"j2vJ1dGuRTbrrP0rC5-4aE9jU_k",
-        "password":"QuantisM00n",
+        "client_id":"XXXXX",
+        "client_secret":"XXXXX",
+        "password":"xxxxx",
         "user_agent":"quantistipbot's tipping bot test v0.1",
         "username":"quantistipbot"
     },
